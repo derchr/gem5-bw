@@ -36,7 +36,7 @@ fn main() -> ExitCode {
 
     let transfers: Vec<Nanoseconds> = read_buf
         .lines()
-        .filter(|line| line.as_ref().unwrap().contains("Responding to Address"))
+        .filter(|line| line.as_ref().unwrap().contains("Timing"))
         .map(|line| line.unwrap().split_once(":").unwrap().0.trim().to_owned())
         .map(|line| Ticks(line.parse::<u64>().unwrap()).into())
         .collect();
